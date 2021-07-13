@@ -22,7 +22,7 @@ const Input = () => {
 	const [shortUrl, setShortUrl] = useState([]);
 	const [longUrl, setLongUrl] = useState([]);
 
-	const [isCopied, setIsCopied] = useState(false);
+	const [copiedItems, setCopiedItem] = useState([]);
 
 	const [fetching, setFetching] = useState(false);
 
@@ -69,14 +69,17 @@ const Input = () => {
 
 					{shortUrl.length
 						? shortUrl.map((link, index) => (
-								<ShortedUrlDiv key={index}>
+								<ShortedUrlDiv key={link}>
 									<LongUrl>{longUrl[index]}</LongUrl>
 
 									<ShortUrlDiv>
 										<ShortUrl>{link}</ShortUrl>
 										<CopyToClipboard text={link}>
-											<CopyBtn onClick={() => setIsCopied(true)} isCopied>
-												{isCopied ? 'Copied' : 'Copy'}
+											<CopyBtn
+												onClick={() => setCopiedItem([...copiedItems, index])}
+												isCopied={copiedItems.includes(index)}
+											>
+												{copiedItems.includes(index) ? 'Copied' : 'Copy'}
 											</CopyBtn>
 										</CopyToClipboard>
 									</ShortUrlDiv>

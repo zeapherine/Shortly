@@ -149,7 +149,7 @@ export const CopyBtn = styled.button`
 	padding: 0.5em 2em;
 	border-radius: 8px;
 	background-color: ${({ isCopied }) =>
-		isCopied === true ? '#2acfcf' : 'green'};
+		isCopied === true ? '#3b3054' : '#2acfcf'};
 	color: #fff;
 	border: none;
 	cursor: pointer;
@@ -160,4 +160,4 @@ export const CopyBtn = styled.button`
 	}
 `;
 
-// '#3b3054'
+
