@@ -30,19 +30,20 @@ const Input = () => {
 		e.preventDefault();
 		setFetching(true);
 
-		if (url === null) {
+		if (url === '') {
 			alert('Cannot find any url, Please try again!');
+		} else {
+			axios
+				.get(`https://api.shrtco.de/v2/shorten?url=${url}`)
+				.then((response) => {
+					setLongUrl([...longUrl, response.data.result.original_link]);
+					setShortUrl([...shortUrl, response.data.result.short_link]);
+					setFetching(false);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
 		}
-		axios
-			.get(`https://api.shrtco.de/v2/shorten?url=${url}`)
-			.then((response) => {
-				setLongUrl([...longUrl, response.data.result.original_link]);
-				setShortUrl([...shortUrl, response.data.result.short_link]);
-				setFetching(false);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
 	};
 	return (
 		<>
@@ -73,11 +74,10 @@ const Input = () => {
 
 									<ShortUrlDiv>
 										<ShortUrl>{link}</ShortUrl>
-										<CopyToClipboard
-											text={link}
-											onCopy={() => setIsCopied(true)}
-										>
-											<CopyBtn isCopied>{isCopied ? 'Copied' : 'Copy'}</CopyBtn>
+										<CopyToClipboard text={link}>
+											<CopyBtn onClick={() => setIsCopied(true)} isCopied>
+												{isCopied ? 'Copied' : 'Copy'}
+											</CopyBtn>
 										</CopyToClipboard>
 									</ShortUrlDiv>
 								</ShortedUrlDiv>
