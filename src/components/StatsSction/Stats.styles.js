@@ -17,6 +17,7 @@ export const StatsHeading = styled.h2`
 	font-size: 3rem;
 	font-weight: 700;
 	margin: 1em;
+	text-align: center;
 `;
 
 export const StateParagraph = styled.p`
@@ -45,11 +46,9 @@ export const FeaturesCard = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 2em 4em;
+	margin: 2em 1em;
 	border-radius: 10px;
 	padding: 3em;
-
-	min-width: 300px;
 
 	@media screen and (min-width: 1200px) {
 		align-items: flex-start;
@@ -76,8 +75,13 @@ export const FeaturesImg = styled.img`
 	left: 30px;
 	bottom: 30px;
 
+	@media screen and (max-width: 800px) {
+		left: 5px;
+	}
+
 	@media screen and (max-width: 1200px) {
-		transform: translateX(-230%);
+		transform: translateY(-70%);
+		left: 0;
 	}
 `;
 

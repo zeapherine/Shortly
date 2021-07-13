@@ -23,7 +23,6 @@ export const Container = styled.div`
 	margin: 0 auto;
 	padding-right: 50px;
 	padding-left: 50px;
-	overflow: hidden;
 
 	@media screen and (max-width: 800px) {
 		padding-right: 30px;

@@ -6,6 +6,7 @@ export const FooterContainer = styled.div`
 
 	@media screen and (max-width: 800px) {
 		flex-direction: column;
+
 		margin-left: -4em;
 	}
 `;
