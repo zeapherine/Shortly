@@ -148,7 +148,7 @@ export const CopyBtn = styled.button`
 	font-weight: 700;
 	padding: 0.5em 2em;
 	border-radius: 8px;
-	background-color: ${(isCopied) => (isCopied ? '#3b3054' : '#2acfcf')};
+	background-color: ${({isCopied}) => (isCopied ? '#3b3054' : '#2acfcf')};
 	color: #fff;
 	border: none;
 

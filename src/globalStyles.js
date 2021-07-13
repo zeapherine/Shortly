@@ -57,7 +57,6 @@ export const Btn = styled.button`
 		background: ${({ active }) => (active ? '#2acfcf' : 'transparent')};
 		border-radius: 50px;
 
-		border: 2px solid teal;
 		border-radius: 50px;
 	}
 `;
